@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Browsing Data Recorder",
+  "description": "Records user browsing data and processes it for emotion analysis.",
+  "version": "1.0",
+  "permissions": [
+    "storage",
+    "cookies",
+    "tabs",
+    "webRequest",
+    "webNavigation",
+    "history",
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["frontend/js/script_termsAndCond.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "frontend/termsandCond.html"
+  },
+  "host_permissions": [
+    "http://localhost/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  }
+}

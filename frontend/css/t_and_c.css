@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Dim the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensure it takes full height */
+}
+
+.popup-container {
+    position: fixed;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset the position */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px; /* Fixed width for the popup */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative; /* For positioning the close button */
+}
+
+.close-button {
+    position: absolute; /* Positioning the close button */
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 18px; /* Font size for the close button */
+    cursor: pointer;
+}
+
+h1 {
+    color: #333;
+    font-size: 20px; /* Reduced font size for better fit */
+}
+
+p {
+    color: #555;
+    font-size: 14px; /* Reduced font size for better fit */
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 14px; /* Reduced font size */
+}
+
+input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px; /* Reduced font size */
+}
+
+button {
+    padding: 10px;
+    border: none;
+    background-color: #28a745;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px; /* Reduced font size */
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#error-message {
+    color: red; 
+    display: none; /* Initially hidden */
+}

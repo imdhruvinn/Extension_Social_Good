@@ -1,0 +1,17 @@
+{
+  "name": "adminproject",
+  "version": "1.0.0",
+  "description": "Admin project for managing users and connecting to MongoDB",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mongoose": "^7.8.2"
+  },
+  "author": "Your Name",
+  "license": "ISC",
+  "keywords": []
+}

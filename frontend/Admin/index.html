@@ -1,0 +1,61 @@
+<!-- This code is for admin page html , css file - style.css -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1ab94d0eba.js" crossorigin="anonymous"></script>
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>                          
+    <main class="container">
+        <h2>Admin</h2>
+        <form id="loginForm">
+            <div class="input-field">
+                <input type="text" name="username" id="username" placeholder="Enter Your Username" required>
+                <div class="underline"></div>
+            </div>
+            <div class="input-field">
+                <input type="password" name="password" id="password" placeholder="Enter Your Password" required>
+                <div class="underline"></div>
+            </div>
+
+            <input type="submit" value="Login">
+        </form>
+    </main>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Define the correct username and password
+            const validUsername = "admin123";
+            const validPassword = "password456";
+
+            // Check if both fields are filled
+            if (!username || !password) {
+                alert('Please fill out all fields.');
+                return;
+            }
+
+            // Validate the username and password
+            if (username !== validUsername && password !== validPassword) {
+                alert('Both username and password are incorrect.');
+            } else if (username !== validUsername) {
+                alert('Incorrect username.');
+            } else if (password !== validPassword) {
+                alert('Incorrect password.');
+            } else {
+                // If username and password are correct, redirect to users.html
+                window.location.href = 'users.html';
+            }
+        });
+    </script>
+</body>
+</html>
+

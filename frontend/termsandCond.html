@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms and Conditions</title>
+    <link rel="stylesheet" href="t_and_c.css" />
+  </head>
+  <body>
+    <div class="popup-container" id="popup-container">
+      <div class="popup">
+        <h1>Thank You for Supporting [Social Good Cause]!</h1>
+        <p>
+          You’re just one step away from joining a community of people making a
+          positive impact. By installing the [Social Good Extension], you can
+          turn your everyday online activities into opportunities to support
+          causes like [list a few causes], effortlessly and at no cost to you.
+          Simply click the "Add to [Browser]" button below and follow the quick
+          installation steps. Once installed, you can continue browsing as
+          usual, knowing that you're helping important causes automatically,
+          without changing your habits. And don't worry—your privacy is fully
+          protected. We don’t track any personal data or browsing history. Take
+          the final step and start making a difference today!
+        </p>
+
+        <form id="user-form">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="phone">Phone Number:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            required
+            pattern="[0-9]{10}"
+          />
+
+          <div id="error-message" style="color: red; display: none"></div>
+
+          <button type="submit" id="add-extension-btn">Add to Chrome</button>
+        </form>
+      </div>
+    </div>
+    <script type="module" src="./js/script_termsAndCond.js"></script>
+  </body>
+</html>

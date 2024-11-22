@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Details</title>
+    <link rel="stylesheet" href="css/user.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h2>User Details</h2>
+      <div id="userDetails">
+        <!-- User details will be populated here -->
+      </div>
+    </main>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const email = urlParams.get("email");
+
+      async function fetchUserDetails() {
+        try {
+          const response = await fetch(
+            `/api/users/${encodeURIComponent(email)}`
+          );
+          if (!response.ok) {
+            throw new Error("User not found or server error");
+          }
+          const user = await response.json();
+
+          const userDetails = document.getElementById("userDetails");
+          if (user) {
+            userDetails.innerHTML = `
+              <p><strong>UID:</strong> ${user.uid}</p>
+              <p><strong>Top Emotion:</strong> ${user.topEmotion}</p>
+              <p><strong>Top Emotion Percentage:</strong> ${user.topEmotionPercentage}%</p>
+              <p><strong>Associated URL:</strong> <a href="${user.associatedUrl}" target="_blank">${user.associatedUrl}</a></p>
+            `;
+          } else {
+            userDetails.innerHTML = "<p>User not found</p>";
+          }
+        } catch (err) {
+          console.error("Failed to fetch user details:", err);
+          document.getElementById("userDetails").innerHTML =
+            "<p>Failed to fetch user details. Please try again later.</p>";
+        }
+      }
+
+      // Fetch and display the user's details
+      document.addEventListener("DOMContentLoaded", fetchUserDetails);
+    </script>
+  </body>
+</html>

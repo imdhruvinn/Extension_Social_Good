@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f0f0f0; /* Light grey background */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main.container {
+    background-color: #ffffff; /* White background for the form */
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+main h2 {
+    color: #000000; /* Black color for Admin heading */
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+main h2::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #000000, #f0f0f0); /* Gradient underline */
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-field {
+    position: relative;
+    width: 100%;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 0.85rem;
+    border-radius: 10px;
+    background-color: #ecf0f1; /* Light background for input fields */
+    border: 1px solid #bdc3c7;
+    color: #333; /* Darker text color for better readability */
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-field input::placeholder {
+    color: rgba(0, 0, 0, 0.4); /* Placeholder color */
+}
+
+.input-field input:focus {
+    border-color: #1abc9c;
+    box-shadow: 0 4px 15px rgba(26, 188, 156, 0.3);
+}
+
+form input[type="submit"] {
+    width: 100%;
+    padding: 0.9rem;
+    border-radius: 50px;
+    border: none;
+    background: linear-gradient(90deg, #e74c3c, #f39c12); /* Red-orange gradient for submit button */
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4); /* Glow effect for button */
+}
+
+form input[type="submit"]:hover {
+    background: linear-gradient(90deg, #f39c12, #e67e22); /* Slightly darker red-orange on hover */
+    box-shadow: 0 12px 25px rgba(231, 76, 60, 0.6);
+    transform: translateY(-2px);
+}
+
+.footer {
+    margin-top: 1.5rem;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.footer a {
+    color: #1abc9c;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}

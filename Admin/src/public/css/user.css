@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(
+    135deg,
+    #d8f3dc,
+    #a1c5a7
+  ); /* Gradient background */
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: linear-gradient(145deg, #ffffff, #f8f8f8); /* Subtle gradient */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Premium shadow */
+  padding: 30px;
+  text-align: center;
+}
+
+.container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #1b4332; /* White text for the heading */
+  background-color: #ffffff; /* Dark greenish-black color for the header box */
+  padding: 15px 20px; /* Padding inside the header box */
+  border-radius: 10px; /* Rounded corners for the header */
+  font-weight: 600;
+  text-transform: uppercase; /* To make heading stand out */
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0; /* Remove spacing for a sleek layout */
+}
+
+table thead {
+  border-bottom: 2px solid #1b4332; /* Elegant divider below headers */
+  position: relative; /* For floating labels */
+}
+
+table thead th {
+  color: white; /* White text color for "Name" and "Email" headers */
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase; /* Modern text styling */
+  letter-spacing: 1px;
+  position: relative;
+  padding: 20px 15px 5px; /* Padding to accommodate the floating effect */
+  text-align: left;
+  background-color: #1b4332; /* Apply 1B4332 color to "Name" and "Email" header */
+}
+
+table tbody td {
+  padding: 15px;
+  color: #555; /* Softer text color for readability */
+  font-size: 1rem;
+  border-bottom: 1px solid #e8e8e8; /* Subtle separator for rows */
+}
+
+table tr {
+  background-color: #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Add a soft shadow to rows */
+}
+
+table tr:hover {
+  background: linear-gradient(
+    135deg,
+    #f1f1f1,
+    #e8f5e9
+  ); /* Subtle hover effect */
+  transform: scale(1.01); /* Slight zoom on hover */
+  transition: all 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.pagination {
+  margin-top: 25px; /* Add spacing above pagination */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination button {
+  background: linear-gradient(145deg, #2d6a4f, #1b4332); /* Button gradient */
+  color: white; /* Button text color */
+  border: none; /* Remove default border */
+  border-radius: 50px; /* Fully rounded buttons */
+  padding: 12px 20px; /* Padding for button */
+  cursor: pointer; /* Change cursor to pointer */
+  font-size: 1rem; /* Button text size */
+  margin: 0 10px; /* Space between buttons */
+  transition: all 0.3s ease; /* Smooth transition for hover and focus */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+.pagination button:hover {
+  background: linear-gradient(
+    145deg,
+    #1b4332,
+    #2d6a4f
+  ); /* Inverse gradient on hover */
+  transform: translateY(-3px); /* Lift effect */
+}
+
+.pagination button:disabled {
+  background-color: #cccccc; /* Disabled button color */
+  cursor: not-allowed; /* Change cursor for disabled button */
+  box-shadow: none; /* Remove shadow for disabled buttons */
+}
+
+.pagination button:focus {
+  outline: none; /* Remove focus outline */
+  box-shadow: 0 0 10px rgba(45, 106, 79, 0.5); /* Glow effect on focus */
+}

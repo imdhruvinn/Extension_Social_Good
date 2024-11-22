@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User List</title>
+    <link rel="stylesheet" href="css/user.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h2>Registered Users</h2>
+      <table id="userTable">
+        <thead>
+          <tr>
+            <th>UID</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody id="userBody">
+          <!-- User data will be populated here -->
+        </tbody>
+      </table>
+
+      <div class="pagination">
+        <button id="prevButton" onclick="changePage(-1)" disabled>
+          Previous
+        </button>
+        <button id="nextButton" onclick="changePage(1)">Next</button>
+      </div>
+    </main>
+
+    <script>
+      let users = [];
+      let currentPage = 1;
+      const usersPerPage = 10;
+
+      // Fetch users from the server API
+      async function fetchUsers(page = 1) {
+        try {
+          const response = await fetch(`/api/users?page=${page}`);
+          const data = await response.json();
+          console.log("Fetched users:", data); // Debugging log
+          users = data.users;
+          const totalUsers = data.totalUsers;
+          displayUsers();
+          togglePaginationButtons(totalUsers);
+        } catch (err) {
+          console.error("Failed to fetch users:", err);
+        }
+      }
+
+      // Display users in the table
+      function displayUsers() {
+        const userBody = document.getElementById("userBody");
+        userBody.innerHTML = ""; // Clear existing rows
+
+        if (users.length === 0) {
+          userBody.innerHTML = "<tr><td colspan='2'>No users found</td></tr>";
+          return;
+        }
+
+        for (let user of users) {
+          const row = document.createElement("tr");
+
+          const uidCell = document.createElement("td");
+          uidCell.textContent = user.uid;
+          row.appendChild(uidCell);
+
+          const emailCell = document.createElement("td");
+          const emailLink = document.createElement("a");
+          emailLink.href = `user_detail.html?email=${encodeURIComponent(user.email)}`;
+          emailLink.textContent = user.email;
+          emailCell.appendChild(emailLink);
+          row.appendChild(emailCell);
+
+          userBody.appendChild(row);
+        }
+      }
+
+      // Handle pagination
+      function changePage(direction) {
+        currentPage += direction;
+        fetchUsers(currentPage);
+      }
+
+      // Enable or disable pagination buttons based on current page and total users
+      function togglePaginationButtons(totalUsers) {
+        document.getElementById("prevButton").disabled = currentPage === 1;
+        document.getElementById("nextButton").disabled =
+          currentPage * usersPerPage >= totalUsers;
+      }
+
+      // Initial fetch of users
+      document.addEventListener("DOMContentLoaded", () => {
+        fetchUsers(currentPage);
+      });
+    </script>
+  </body>
+</html>

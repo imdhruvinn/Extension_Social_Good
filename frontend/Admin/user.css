@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #e9ecef; /* Light grey background */
+    color: #333;
+}
+
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: #ffffff; /* White background for the content area */
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #005a5f; /* Dark greenish-blue for headings */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6; /* Light grey border */
+}
+
+table th {
+    background-color: #005a5f; /* Dark greenish-blue for header */
+    color: white; /* White text for contrast */
+}
+
+table tr:hover {
+    background-color: #f1f1f1; /* Light hover effect for rows */
+}
+
+table td {
+    color: #333; /* Darker text color for better readability */
+}
+
+/* Styles for pagination buttons */
+.pagination {
+    margin-top: 20px; /* Space between table and buttons */
+}
+
+.pagination button {
+    background-color: #005a5f; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for button */
+    cursor: pointer; /* Change cursor to pointer */
+    font-size: 1rem; /* Button text size */
+    margin: 0 5px; /* Space between buttons */
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.pagination button:hover {
+    background-color: #004d4f; /* Darker shade on hover */
+}
+
+.pagination button:disabled {
+    background-color: #cccccc; /* Disabled button color */
+    cursor: not-allowed; /* Change cursor for disabled button */
+}

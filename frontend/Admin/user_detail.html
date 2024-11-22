@@ -1,0 +1,149 @@
+<!-- this file is for the details of the user - it keeps tracks of its search history.. this page is after 
+ the user list page.. css - user_d.css
+-->
+ 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <link rel="stylesheet" href="user_d.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+    <main class="container">
+        <h2>User Details</h2>
+
+        <!-- User Information Section -->
+        <div class="user-info">
+            <strong>Registered User:</strong> <span id="userName">John Doe</span><br>
+            <strong>Email:</strong> <span id="userEmail">johndoe@example.com</span>
+        </div>
+
+        <!-- Search History Section -->
+        <h3>Search History</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Search Query</th>
+                </tr>
+            </thead>
+            <tbody id="searchHistory">
+                <!-- User search history will be populated here -->
+            </tbody>
+        </table>
+
+        <!-- Emotion Tracking Section -->
+        <h3>Emotion Tracking</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Emotion %</th>
+                </tr>
+            </thead>
+            <tbody id="emotionTracking">
+                <!-- User emotion tracking will be populated here -->
+            </tbody>
+        </table>
+    </main>
+
+    <script>
+        // Sample user data (replace this with your actual data source)
+        const users = {
+            "johndoe@example.com": {
+                name: "John Doe",
+                searchHistory: [
+                    { date: "2024-10-01", query: "How to deal with depression" },
+                    { date: "2024-10-02", query: "Signs of anxiety" },
+                    { date: "2024-10-05", query: "Tips for mental health" },
+                    { date: "2024-10-10", query: "Best meditation apps" },
+                    { date: "2024-10-12", query: "How to talk to a therapist" }
+                ],
+                emotionTracking: [
+                    { date: "2024-10-01", emotion: "75%" },
+                    { date: "2024-10-02", emotion: "60%" },
+                    { date: "2024-10-05", emotion: "70%" },
+                    { date: "2024-10-10", emotion: "50%" },
+                    { date: "2024-10-12", emotion: "65%" }
+                ]
+            },
+            "janesmith@example.com": {
+                name: "Jane Smith",
+                searchHistory: [
+                    { date: "2024-10-03", query: "How to manage stress" },
+                    { date: "2024-10-04", query: "Signs of burnout" },
+                    { date: "2024-10-06", query: "Healthy coping strategies" },
+                    { date: "2024-10-11", query: "Mindfulness exercises" },
+                    { date: "2024-10-13", query: "Finding a therapist" }
+                ],
+                emotionTracking: [
+                    { date: "2024-10-03", emotion: "80%" },
+                    { date: "2024-10-04", emotion: "65%" },
+                    { date: "2024-10-06", emotion: "55%" },
+                    { date: "2024-10-11", emotion: "70%" },
+                    { date: "2024-10-13", emotion: "90%" }
+                ]
+            },
+            "michaelbrown@example.com": {
+                name: "Michael Brown",
+                searchHistory: [
+                    { date: "2024-10-01", query: "How to cope with loss" },
+                    { date: "2024-10-02", query: "Understanding grief" },
+                    { date: "2024-10-03", query: "Building resilience" },
+                    { date: "2024-10-04", query: "Stress management techniques" },
+                    { date: "2024-10-05", query: "Mental health resources" }
+                ],
+                emotionTracking: [
+                    { date: "2024-10-01", emotion: "70%" },
+                    { date: "2024-10-02", emotion: "65%" },
+                    { date: "2024-10-03", emotion: "50%" },
+                    { date: "2024-10-04", emotion: "55%" },
+                    { date: "2024-10-05", emotion: "60%" }
+                ]
+            }
+            // Add other users similarly...
+        };
+
+        // Function to get query parameter from URL
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Function to display user data
+        function displayUserData() {
+            const email = getQueryParameter("email");
+            if (email && users[email]) {
+                const user = users[email];
+                document.getElementById("userName").textContent = user.name;
+                document.getElementById("userEmail").textContent = email;
+
+                // Populate Search History
+                const searchHistory = document.getElementById("searchHistory");
+                searchHistory.innerHTML = ""; // Clear existing data
+                user.searchHistory.forEach(entry => {
+                    searchHistory.innerHTML += `<tr><td>${entry.date}</td><td>${entry.query}</td></tr>`;
+                });
+
+                // Populate Emotion Tracking
+                const emotionTracking = document.getElementById("emotionTracking");
+                emotionTracking.innerHTML = ""; // Clear existing data
+                user.emotionTracking.forEach(entry => {
+                    emotionTracking.innerHTML += `<tr><td>${entry.date}</td><td>${entry.emotion}</td></tr>`;
+                });
+            } else {
+                // Handle case where user data is not found
+                document.getElementById("userName").textContent = "User not found";
+                document.getElementById("userEmail").textContent = "";
+                document.getElementById("searchHistory").innerHTML = "<tr><td colspan='2'>No search history available</td></tr>";
+                document.getElementById("emotionTracking").innerHTML = "<tr><td colspan='2'>No emotion tracking available</td></tr>";
+            }
+        }
+
+        // Call the function to display user data on page load
+        displayUserData();
+    </script>
+</body>
+</html>

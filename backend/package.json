@@ -1,0 +1,23 @@
+{
+  "name": "extension-backend",
+  "version": "1.0.0",
+  "description": "Backend for the Chrome Extension",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "child_process": "latest",
+    "concurrently": "^6.0.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.6.0",
+    "express": "^4.17.1",
+    "express-session": "^1.18.1",
+    "mongoose": "^5.12.3",
+    "spacy": "^0.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

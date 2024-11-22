@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Dim the background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Arial", sans-serif; /* Consistent font family */
+}
+
+.cookies-popup {
+  position: relative;
+  background-color: #ffffff; /* White background */
+  padding: 20px; /* Padding for the popup */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow for the popup */
+  z-index: 1000; /* Ensure it is above other elements */
+  max-width: 90%; /* Max width for popup */
+  width: 350px; /* Fixed width for consistency */
+  text-align: center;
+}
+
+.cookies-popup h2 {
+  font-size: 20px; /* Heading size */
+  margin-bottom: 10px; /* Space below heading */
+}
+
+.cookies-popup p {
+  font-size: 16px; /* Font size for message */
+  margin-bottom: 10px; /* Space below paragraphs */
+  line-height: 1.5; /* Improved readability */
+}
+
+.cookies-popup ul {
+  list-style-type: disc; /* Disc list style */
+  margin: 10px 0; /* Margin for list */
+  padding-left: 20px; /* Indent the list */
+  text-align: left; /* Align text to the left */
+  font-size: 16px; /* Font size for list */
+}
+
+.buttons {
+  display: flex; /* Flex layout for buttons */
+  justify-content: space-between; /* Space between buttons */
+  margin-top: 15px; /* Space above buttons */
+}
+
+#acceptCookies,
+#rejectCookies {
+  padding: 10px 15px; /* Button padding */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners for buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 14px; /* Font size for buttons */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+#acceptCookies {
+  background-color: #28a745; /* Green background for accept button */
+  color: white; /* White text */
+}
+
+#rejectCookies {
+  background-color: #dc3545; /* Red background for reject button */
+  color: white; /* White text */
+}
+
+#acceptCookies:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+#rejectCookies:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
